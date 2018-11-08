@@ -1,0 +1,114 @@
+/* Required height of parents of the Full Page Carousel for proper displaying carousel itself */
+html,
+body,
+.view {
+  height: 100%; }
+
+.page-footer {
+  background-color: #1C2331; }
+
+/* Full Page Carousel itself*/
+.carousel {
+  height: 100%; }
+  .carousel .carousel-inner {
+    height: 100%; }
+    .carousel .carousel-inner .carousel-item,
+    .carousel .carousel-inner .active {
+      height: 100%; }
+
+p {
+  font-size: 600 !important; }
+
+.modaling-btn {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center !important;
+  -webkit-justify-content: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  -webkit-box-align: center !important;
+  -webkit-align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important; }
+
+/* Navbar animation */
+.mw-100 {
+  max-width: 100%; }
+
+.form-icon {
+  background: none;
+  border: none; }
+
+.mt-8 {
+  margin-top: 80px; }
+
+.transparent {
+  background: transparent; }
+
+.carousel-control-prev-icon {
+  font-size: 40px; }
+
+/* Adding color to the Navbar on mobile */
+/* Required for full background image */
+html,
+body,
+header,
+.view {
+  height: 100%; }
+
+@media (max-width: 740px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 1000px; } }
+
+@media (min-width: 800px) and (max-width: 850px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 650px; } }
+
+.top-nav-collapse {
+  background-color: #3f51b5 !important; }
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important; }
+
+@media (max-width: 991px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #3f51b5 !important; } }
+
+h6 {
+  line-height: 1.7; }
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #1C2331; } }
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.top-nav-collapse {
+  background-color: #1C2331 !important; }
+
+.mw-100 {
+  max-width: 100%; }
+
+.wider {
+  height: 410px; }
+
+/* Footer color for sake of consistency with Navbar */
+.m-auto {
+  display: block;
+  margin: 0 auto; }
+
+.div-40 {
+  height: 40px; }
+.form-control {
+  height: 45px;
+}
