@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
           <div v-on:click="editCounter_1"><i v-bind:style="redCounter_1 ? 'color: red;' : ''" class="far fa-heart fa-2x ml-2 mr-2"></i></div>
           <p v-bind:style="redCounter_1 ? 'color: red;' : ''">{{likeCounter_1}}</p>
-          <i class="far fa-comment fa-2x ml-2 mr-2"></i>
+          <div v-on:click="modalForm"><i class="far fa-comment fa-2x ml-2 mr-2"></i></div>
           <p>{{project_1.comments}}</p>
           <i class="fas fa-link fa-2x ml-2 mr-2"></i>
         </div>
@@ -43,7 +43,7 @@
         <div class="row justify-content-center">
           <div v-on:click="editCounter_2"><i v-bind:style="redCounter_2 ? 'color: red;' : ''" class="far fa-heart fa-2x ml-2 mr-2"></i></div>
           <p v-bind:style="redCounter_2 ? 'color: red;' : ''">{{likeCounter_2}}</p>
-          <i class="far fa-comment fa-2x ml-2 mr-2"></i>
+          <div v-on:click="modalForm"><i class="far fa-comment fa-2x ml-2 mr-2"></i></div>
           <p>{{project_2.comments}}</p>
           <i class="fas fa-link fa-2x ml-2 mr-2"></i>
         </div>
@@ -67,7 +67,7 @@
         <div class="row justify-content-center">
           <div v-on:click="editCounter_3"><i v-bind:style="redCounter_3 ? 'color: red;' : ''" class="far fa-heart fa-2x ml-2 mr-2"></i></div>
           <p v-bind:style="redCounter_3 ? 'color: red;' : ''">{{likeCounter_3}}</p>
-          <i class="far fa-comment fa-2x ml-2 mr-2"></i>
+          <div v-on:click="modalForm"><i class="far fa-comment fa-2x ml-2 mr-2"></i></div>
           <p>{{project_3.comments}}</p>
           <i class="fas fa-link fa-2x ml-2 mr-2"></i>
         </div>
@@ -91,14 +91,37 @@
         <div class="row justify-content-center">
           <div v-on:click="editCounter_4"><i v-bind:style="redCounter_4 ? 'color: red;' : ''" class="far fa-heart fa-2x ml-2 mr-2"></i></div>
           <p v-bind:style="redCounter_4 ? 'color: red;' : ''">{{likeCounter_4}}</p>
-          <i class="far fa-comment fa-2x ml-2 mr-2"></i>
+          <div v-on:click="modalForm"><i class="far fa-comment fa-2x ml-2 mr-2"></i></div>
           <p>{{project_4.comments}}</p>
           <i class="fas fa-link fa-2x ml-2 mr-2"></i>
         </div>
       </div>
 
     </div>
+    <div v-if="modal" class="modal__container pt-5">
+      <div class="close_container">
+        <i class="far fa-times-circle fa-2x" v-on:click="modal = false"></i>
+      </div>
+      <div class="card col-lg-6 m-auto --inner__modal" v-bind:style="maxLength ? 'overflow-y: scroll;' : 'overflow-y: hidden'" id="list_comments">
+        <div class="card-body">
 
+          <form @submit.prevent="addComents" class="mb-3" action="index.html" method="post">
+            <input type="text"  v-model="name" class="form-control mb-2" name="" value="" placeholder="Your Name">
+            <textarea name="name" v-model="textComment" class="form-control" rows="2" placeholder="Text comment" cols="80"></textarea>
+            <button class="btn btn-outline-purple mb-2 mt-2" type="submit">Отправить</button>
+
+          </form>
+          <div class="col-lg-8 m-auto text-center">
+            <span class="text-center mb-2">comments list</span>
+            <hr  class="col-lg-3 m-auto"/>
+          </div>
+          <ul class="list-group list_comments" >
+            <li v-for="(item , index) of comments_list_1"class="mb-2"><img src="../assets/logo.png" class="mr-3 mb-2" alt="">{{item.name}}: {{item.txt}}</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -115,6 +138,22 @@ export default {
       redCounter_3: false,
       likeCounter_4: 94,
       redCounter_4: false,
+      modal: false,
+      name: null,
+      textComment: null,
+      maxLength: false,
+
+      comments_list_1: [
+        {
+          name: "Anton",
+          txt: "Your amazing Project"
+
+        },
+        {
+          name: "Сергей",
+          txt: "Крутой проект, я бы добавил немного анимации",
+        },
+      ],
         project_1:  {
             id: 2,
             likes: 132,
@@ -149,6 +188,11 @@ export default {
         },
     }
   },
+  // computed () {
+  //   coments_list_1 () {
+  //     this.project_1.comments_list.map()
+  //   },
+  // },
   methods: {
     editCounter_1 () {
       this.redCounter_1  = !this.redCounter_1;
@@ -165,6 +209,20 @@ export default {
     editCounter_4 () {
       this.redCounter_4  = !this.redCounter_4;
       this.redCounter_4 ? this.likeCounter_4++ : this.likeCounter_4--;
+    },
+    modalForm () {
+      this.modal = !this.modal;
+      console.log(this.modal)
+    },
+    addComents () {
+      this.comments_list_1.push({
+        name: this.name,
+        txt: this.textComment,
+      })
+
+      if (this.comments_list_1.length > 4){
+        this.maxLength = true
+      }
     },
   },
 }
@@ -221,5 +279,33 @@ export default {
   display: block;
   margin: 0 auto;
   height: 1px;
+}
+.modal__container {
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 777;
+  display: block;
+  top:0;
+  left: 0;
+}
+.--inner__modal {
+  z-index: 999;
+  height: 90vh;
+
+}
+.list_comments {
+  list-style-type: none !important;
+  display: flex;
+  flex-flow: column-reverse;
+}
+.close_container {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
 }
 </style>
