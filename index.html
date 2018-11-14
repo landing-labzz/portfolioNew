@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>cropchat</title>
+    <title>Landing Labzz</title>
     <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
     <!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
@@ -27,7 +27,7 @@
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="scrollbar-secondary">
     <noscript>
       This is your fallback content in case JavaScript fails to load.
     </noscript>
@@ -35,31 +35,24 @@
     <!-- Todo: only include in production -->
     <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
     <!-- built files will be auto injected -->
-    <!-- Firebase App is always required and must be first -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js">
 
-<!-- Add additional services that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-functions.js"></script>
-
-<!-- Comment out (or don't include) services that you don't want to use -->
-<!-- <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-storage.js"></script> -->
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDKF0Q7Bsazc-9IZbLdD8ELiCkQ1dL7OOA",
-    authDomain: "chat-5227e.firebaseapp.com",
-    databaseURL: "https://chat-5227e.firebaseio.com",
-    projectId: "chat-5227e",
-    storageBucket: "chat-5227e.appspot.com",
-    messagingSenderId: "432995705783"
+    apiKey: "AIzaSyAXXswxgyoyGtQbpRA08UJ7cq2mEQVU-88",
+    authDomain: "portfolio-5ec1d.firebaseapp.com",
+    databaseURL: "https://portfolio-5ec1d.firebaseio.com",
+    projectId: "portfolio-5ec1d",
+    storageBucket: "portfolio-5ec1d.appspot.com",
+    messagingSenderId: "618594531924"
   };
   firebase.initializeApp(config);
+</script>
+<script>
+  $(document).ready(function(){$('.link-hamburger[href^="#"]').bind("click.smoothscroll",function(){var e=$(this).attr("href"),t=$(e).offset().top;return $("body, html").animate({scrollTop:t},2e3),!1}),$("#menu").click(function(){$("#dn").toggle("hide"),$("#menu__items").slideToggle("slow",function(){})})}),$(document).ready(function(){$("form").submit(function(){var e=$(this);return $.ajax({type:"POST",url:"mail.php",data:e.serialize()}).done(function(){alert("Thank you!"),setTimeout(function(){e.trigger("reset")},1e3)}),!1})});
 </script>
   </body>
 </html>

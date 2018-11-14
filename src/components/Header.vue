@@ -29,4 +29,22 @@ export default {
   width: 100%;
   height: 668px;
 }
+@media screen and (max-width: 768px) {
+  .header__container {
+    background-image: url('../assets/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 468px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header__container {
+    background-image: url('../assets/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 668px;
+  }
+}
 </style>

@@ -8,6 +8,22 @@
        />
        <Work />
     </section>
+    <section id="about" class="pt-5 pb-5">
+      <Title
+        titleLg="Обо мне"
+        description="Не много информации о себе"
+       />
+       <About />
+
+        <main class="" style="padding-top: 100px;">
+          <Title
+            titleLg="Навыки"
+            description="Коротко о навыках"
+           />
+          <Skills/>
+
+        </main>
+    </section>
     <section id="portfolio" class="pt-5 pb-5">
       <Title
         titleLg="Портфолио"
@@ -15,6 +31,9 @@
        />
        <Portfolio />
     </section>
+    <Features />
+    <Social />
+    <Footer />
   </main>
 </template>
 
@@ -23,6 +42,12 @@ import Header from './Header'
 import Title from './Title'
 import Work from './Work'
 import Portfolio from './Portfolio'
+import Features from './Features'
+import Social from './Social'
+import Footer from './Footer'
+import Testimonials from './Testimonials'
+import About from './About'
+import Skills from './Skills'
 export default {
   name: 'home',
   components: {
@@ -30,6 +55,12 @@ export default {
     Title,
     Work,
     Portfolio,
+    Features,
+    Social,
+    Footer,
+    Testimonials,
+    About,
+    Skills,
   },
 }
 </script>

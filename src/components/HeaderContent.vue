@@ -39,4 +39,5 @@ export default {
   height: 60%;
   justify-content: center;
 }
+
 </style>
